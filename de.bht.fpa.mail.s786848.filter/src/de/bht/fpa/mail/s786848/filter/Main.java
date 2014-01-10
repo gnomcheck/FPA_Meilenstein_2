@@ -21,16 +21,16 @@ final class Main {
    */
   public static void main(String[] args) {
 
-    // Test 1
+    // Read Test
     IFilter read = new Read(false);
 
-    // Test 2
-    IFilter s = new Sender("me@this.com", FilterOperator.CONTAINS);
-    IFilter r = new Recipients("foo@bar.de", FilterOperator.IS);
+    // Union Test
+    IFilter s = new Sender("arnold", FilterOperator.CONTAINS);
+    IFilter r = new Recipients("@hotmail.de", FilterOperator.IS);
     IFilter union = new Union(s, r);
 
-    // Test 3
-    IFilter s2 = new Sender("mueller", FilterOperator.STARTS_WITH);
+    // Intersection Test
+    IFilter s2 = new Sender("trude", FilterOperator.STARTS_WITH);
     IFilter read2 = new Read(true);
     IFilter intersection = new Intersection(s2, read2);
 
